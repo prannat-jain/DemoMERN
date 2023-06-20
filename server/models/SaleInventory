@@ -18,4 +18,4 @@ const SaleInventorySchema = new Schema({
 
 const SaleInventory = mongoose.model("SaleInventory", SaleInventorySchema);
 
-module.exports = Todo;
+module.exports = SaleInventory;
