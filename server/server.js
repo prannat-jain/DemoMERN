@@ -45,3 +45,11 @@ app.post("/saleinventoryitem/new", (req, res) => {
 
   res.json(saleinventoryitem);
 });
+
+//deleting by id
+app.delete("/saleinventoryitem/delete/:itemID", async (req, res) => {
+  //mongoose method to find by id and delete
+  const result = await SaleInventory.findByIdAndDelete(req.params.itemID);
+
+  res.json(result);
+});
