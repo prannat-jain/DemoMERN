@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SaleInventorySchema = new Schema({
-  itemText: {
+  text: {
     type: String,
     required: true,
   },

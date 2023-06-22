@@ -22,6 +22,8 @@ mongoose
   .then(() => console.log("Connected to mongoDB"))
   .catch(console.error);
 
+app.listen(3001, () => console.log("Server started on port 3001"));
+
 //import created model for db
 const SaleInventory = require("./models/SaleInventory");
 
@@ -32,4 +34,14 @@ app.get("/saleinventory", async (req, res) => {
   res.json(saleinventory);
 });
 
-app.listen(3001, () => console.log("Server started on port 3001"));
+//adding inventory items by app.post
+app.post("/saleinventoryitem/new", (req, res) => {
+  const saleinventoryitem = new SaleInventory({
+    //passing through the input text and creating a saleinventory item
+    text: req.body.text,
+  });
+
+  saleinventoryitem.save();
+
+  res.json(saleinventoryitem);
+});
