@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const SaleInventorySchema = new Schema({
   text: {
     type: String,
-    required: true,
+    //required: true,
   },
   stillAvailable: {
     type: Boolean,

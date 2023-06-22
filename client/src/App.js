@@ -77,10 +77,11 @@ function App() {
               "saleinventoryitem " + (item.stillAvailable ? "" : "is-sold")
             }
             key={item._id}
-            onClick={() => sellItem(item._id)}
           >
             <div className="checkbox"></div>
-            <div className="text">{item.text}</div>
+            <div className="text" onClick={() => sellItem(item._id)}>
+              {item.text}
+            </div>
 
             <div className="deleteitem" onClick={() => deleteItem(item._id)}>
               x
