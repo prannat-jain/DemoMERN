@@ -53,3 +53,15 @@ app.delete("/saleinventoryitem/delete/:itemID", async (req, res) => {
 
   res.json(result);
 });
+
+//updating by id, for example marking item as sold
+app.put("/saleinventoryitem/sold/:itemID", async (req, res) => {
+  const saleinventoryitem = await SaleInventory.findById(req.params.itemID);
+
+  //if item is still available, mark it as sold or vica versa
+  saleinventoryitem.stillAvailable = !saleinventoryitem.stillAvailable;
+
+  saleinventoryitem.save();
+
+  res.json(saleinventoryitem);
+});
