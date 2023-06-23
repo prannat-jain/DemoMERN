@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   const GetItems = () => {
-    fetch(API_BASE + "/saleinventory", { mode: "no-cors" })
+    fetch(API_BASE + "/saleinventory")
       .then((res) => res.json())
       .then((data) => setItems(data))
       .catch((err) => console.log(err));
@@ -29,7 +29,6 @@ function App() {
   const sellItem = async (id) => {
     const data = await fetch(API_BASE + "/saleinventoryitem/sold/" + id, {
       method: "PUT",
-      mode: "no-cors",
     }).then((res) => res.json());
 
     setItems((items) =>
@@ -47,7 +46,6 @@ function App() {
   const deleteItem = async (id) => {
     const data = await fetch(API_BASE + "/saleinventoryitem/delete/" + id, {
       method: "DELETE",
-      mode: "no-cors",
     }).then((res) => res.json());
 
     //filter out the item with id from db
@@ -57,7 +55,6 @@ function App() {
   const addItem = async () => {
     const data = await fetch(API_BASE + "/saleinventoryitem/new/", {
       method: "POST",
-      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: newItem }),
     }).then((res) => res.json());
