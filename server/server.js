@@ -67,6 +67,19 @@ app.put("/saleinventoryitem/sold/:itemID", async (req, res) => {
   res.json(saleinventoryitem);
 });
 
+export const handler = async (event) => {
+  const response = {
+    statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Origin": "http://3.142.251.170/",
+      "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
+    },
+    body: JSON.stringify("Hello from Lambda!"),
+  };
+  return response;
+};
+
 //setup to run client from node.js itself using the build
 const path = require("path");
 
